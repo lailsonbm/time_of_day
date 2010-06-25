@@ -5,12 +5,14 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "time_of_day"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
+    gem.summary = %Q{Time without dates for Ruby and Rails 3.}
+    gem.description = %Q{Adds time-only capabilities to the Time class and maps the Rails time type correctly to a time without date.}
     gem.email = "lailson@guava.com.br"
     gem.homepage = "http://github.com/lailsonbm/time_of_day"
     gem.authors = ["Lailson Bandeira"]
-    gem.add_development_dependency "thoughtbot-shoulda", ">= 0"
+    gem.add_development_dependency "shoulda", ">= 2.11.1"
+    gem.add_development_dependency "activesupport", ">= 3.0.0.beta4"
+    gem.add_development_dependency "activerecord", ">= 3.0.0.beta4"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
   Jeweler::GemcutterTasks.new
