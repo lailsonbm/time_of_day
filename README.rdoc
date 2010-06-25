@@ -1,7 +1,7 @@
 = time_of_day
 
 Have you already worked with a database Time column and an Active Record model together?
-If you had, you know: it sucks. Not anymore.
+If you had, you know: it sucks. Well, not anymore.
 
 == Setup
 
@@ -42,7 +42,7 @@ So lets dive into Rails and do it. You'll end up with a migration and a model li
   class Trip < ActiveRecord::Base
   end
 
-Cool. Just after a +rake db:migrate+, we can create trips and tell if the train will be
+Cool. Just after a <code>rake db:migrate</code>, we can create trips and tell if the train will be
 on any of them at a given time:
 
   trip = Trip.new
@@ -58,11 +58,11 @@ You might be surprised to know: this code does not work. At least not as we expe
 statements return false. The problem is caused by the way Active Record handles time-only attributes.
 SQL has the +time+ data type, that represents just a time of day, but Ruby doesn't 
 have such thing. So, Active Record represent time attributes using the +Time+ class on
-the canonical (and arbitrary) date +2000-01-01+. This is okay when you are comparing only attributes
+the canonical (and arbitrary) date <code>2000-01-01</code>. This is okay when you are comparing only attributes
 since their date will be equal and just the time will be compared. However, when you compare an
 attribute with another time instance, you start to need silly workarounds. In this case, the code does not work
-because +Time#parse+ yields the current date (e.g. +2010-06-25 10:05') and of course it is not between 
-+2000-01-01 10:00+ and +2000-01-01 10:10+. To accomplish what you were trying, you have two alternatives:
+because <code>Time#parse</code> yields the current date (e.g. <code>2010-06-25 10:05</code>) and of course it is not between 
+<code>2000-01-01 10:00</code> and <code>2000-01-01 10:10</code>. To accomplish what you were trying, you have two alternatives:
 
   # Always use the date 01/01/2000 for any time you want to compare (notice the Z for UTC time zone)
   time = Time.parse('2000-01-01 10:05Z')
@@ -72,7 +72,7 @@ because +Time#parse+ yields the current date (e.g. +2010-06-25 10:05') and of co
   seconds = time.seconds_since_midnight
   (trip.departure.seconds_since_midnight <= seconds && trip.arrive.seconds_since_midnight >= seconds) # => true
 
-Sorry, both options sucks.
+Sorry, but both options suck.
 
 == How time_of_day handles the problem
 
@@ -91,7 +91,7 @@ does. It adds some methods to +Time+ for representing times of day, instead of t
   time1 == time2 # => true
   
 So, now you can ignore the date information and compare just time. The most exciting thing, 
-though, is that Active Record time attributes now are always mapped to times of day:
+though, is that Active Record time attributes are now always mapped to times of day:
 
   trip = Trip.new
   trip.departure = '10:00'
@@ -100,7 +100,7 @@ though, is that Active Record time attributes now are always mapped to times of 
   trip.departure.time_of_day? # => true
   trip.arrive.time_of_day? # => true
   
-At this time, the code work effortlessly:
+At this time, the code works effortlessly:
 
   time = Time.parse('10:05').time_of_day!
   (trip.departure..trip.arrive).cover?(time) # true
@@ -114,4 +114,4 @@ Tested with Rails 3.0.0.beta4 on Ruby 1.9.2-preview3 and Ruby 1.8.7.
 
 == Copyright
 
-Copyright (c) 2010 Lailson Bandeira. See LICENSE for details.
+Copyright (c) 2010 Lailson Bandeira (lailson@guava.com.br). See LICENSE for details.
