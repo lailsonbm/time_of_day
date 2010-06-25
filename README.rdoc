@@ -4,11 +4,11 @@ Have you ever worked with ActiveRecord and SQL's time type? If you did, you know
 
 == Setup
 
-In the `Gemfile` add:
+In the +Gemfile+ add:
   
   gem 'time_of_day', :git => 'git://github.com/lailsonbm/time_of_day'
 
-Run `bundler`:
+Run +bundler+:
 
   bundle install
 
