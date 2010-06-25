@@ -6,7 +6,8 @@ module ActiveRecord
     class Column
       class << self
         def string_to_dummy_time_with_time_of_day(string)
-          string_to_dummy_time_without_time_of_day(string).try(:time_of_day)
+          t = string_to_dummy_time_without_time_of_day(string)
+          t.respond_to?(:time_of_day) ? t.time_of_day : t
         end
         alias_method_chain :string_to_dummy_time, :time_of_day
       end
