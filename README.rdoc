@@ -62,7 +62,7 @@ the canonical (and arbitrary) date <code>2000-01-01</code>. This is okay when yo
 since their date will be equal and just the time will be compared. However, when you compare an
 attribute with another time instance, you start to need silly workarounds. In this case, the code does not work
 because <code>Time#parse</code> yields the current date (e.g. <code>2010-06-25 10:05</code>) and of course it is not between 
-<code>2000-01-01 10:00</code> and <code>2000-01-01 10:10</code>. To accomplish what you were trying, you have two alternatives:
+<code>2000-01-01 10:00</code> and <code>2000-01-01 10:10</code>. To accomplish what you were trying to do, you have two alternatives:
 
   # Always use the date 01/01/2000 for any time you want to compare (notice the Z for UTC time zone)
   time = Time.parse('2000-01-01 10:05Z')
@@ -103,8 +103,8 @@ though, is that Active Record time attributes are now always mapped to times of 
 At this time, the code works effortlessly:
 
   time = Time.parse('10:05').time_of_day!
-  (trip.departure..trip.arrive).cover?(time) # true
-  (trip.departure <= time && trip.arrive >= time) # true
+  (trip.departure..trip.arrive).cover?(time) # => true
+  (trip.departure <= time && trip.arrive >= time) # => true
   
 And you go home earlier.
 
