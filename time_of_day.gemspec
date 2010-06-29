@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Lailson Bandeira"]
-  s.date = %q{2010-06-25}
+  s.date = %q{2010-06-29}
   s.description = %q{Adds time-only capabilities to the Time class and maps the Rails time type correctly to a time without date.}
   s.email = %q{lailson@guava.com.br}
   s.extra_rdoc_files = [
@@ -47,17 +47,17 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<activesupport>, [">= 3.0.0.beta4"])
-      s.add_runtime_dependency(%q<activerecord>, [">= 3.0.0.beta4"])
+      s.add_runtime_dependency(%q<activesupport>, [">= 3.0.0.beta3"])
+      s.add_runtime_dependency(%q<activerecord>, [">= 3.0.0.beta3"])
       s.add_development_dependency(%q<shoulda>, [">= 2.11.1"])
     else
-      s.add_dependency(%q<activesupport>, [">= 3.0.0.beta4"])
-      s.add_dependency(%q<activerecord>, [">= 3.0.0.beta4"])
+      s.add_dependency(%q<activesupport>, [">= 3.0.0.beta3"])
+      s.add_dependency(%q<activerecord>, [">= 3.0.0.beta3"])
       s.add_dependency(%q<shoulda>, [">= 2.11.1"])
     end
   else
-    s.add_dependency(%q<activesupport>, [">= 3.0.0.beta4"])
-    s.add_dependency(%q<activerecord>, [">= 3.0.0.beta4"])
+    s.add_dependency(%q<activesupport>, [">= 3.0.0.beta3"])
+    s.add_dependency(%q<activerecord>, [">= 3.0.0.beta3"])
     s.add_dependency(%q<shoulda>, [">= 2.11.1"])
   end
 end
