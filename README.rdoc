@@ -76,7 +76,7 @@ Sorry, but both options suck.
 
 == How time_of_day handles the problem
 
-There are many ways to fix this issue. Subclassing +Time+ would be certainly the most pure OO
+There are many ways to fix this issue. Subclassing +Time+ would be certainly the purest OO
 solution, but I found that monkey patching it is much more practical. So, it's what +time_of_day+
 does. It adds some methods to +Time+ for representing times of day, instead of time with dates.
   
