@@ -7,7 +7,7 @@ If you had, you know: it sucks. Well, not anymore.
 
 In the +Gemfile+ add:
   
-  gem 'time_of_day', :git => 'git://github.com/lailsonbm/time_of_day'
+  gem 'time_of_day', :git => 'git://github.com/lailsonbm/time_of_day', :branch => 'rails3b4'
 
 Run +bundler+:
 
