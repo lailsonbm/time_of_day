@@ -7,7 +7,7 @@ If you had, you know: it sucks. Well, not anymore.
 
 In the +Gemfile+ add:
   
-  gem 'time_of_day', :git => 'git://github.com/lailsonbm/time_of_day'
+  gem 'time_of_day', :git => 'git://github.com/lailsonbm/time_of_day', :branch => 'rails3b3'
 
 Run +bundler+:
 
@@ -110,7 +110,7 @@ And you go home earlier.
 
 == Compatibility
  
-Tested with Rails 3.0.0.beta4 on Ruby 1.9.2-preview3 and Ruby 1.8.7.
+Tested with Rails 3.0.0.beta3 on Ruby 1.9.2-preview3 and Ruby 1.8.7.
 
 == Copyright
 
