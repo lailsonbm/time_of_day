@@ -110,7 +110,7 @@ And you go home earlier.
 
 == Compatibility
  
-Tested with Rails 3.0.0.rc on Ruby 1.9.2 RC2 and Ruby 1.8.7.
+Tested with Rails 3.0.0.rc2 on Ruby 1.9.2-p0 and Ruby 1.8.7.
 
 == Copyright
 
