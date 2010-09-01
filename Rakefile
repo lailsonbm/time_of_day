@@ -10,9 +10,9 @@ begin
     gem.email = "lailson@guava.com.br"
     gem.homepage = "http://github.com/lailsonbm/time_of_day"
     gem.authors = ["Lailson Bandeira"]
-    gem.add_dependency "activesupport", ">= 3.0.0.rc"
-    gem.add_dependency "activerecord", ">= 3.0.0.rc"
-    gem.add_development_dependency "shoulda", ">= 2.11.1"
+    gem.add_dependency "activesupport", ">= 3.0.0.rc2"
+    gem.add_dependency "activerecord", ">= 3.0.0.rc2"
+    gem.add_development_dependency "shoulda", ">= 2.11.3"
   end
   Jeweler::GemcutterTasks.new
 rescue LoadError
