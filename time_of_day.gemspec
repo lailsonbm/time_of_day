@@ -5,7 +5,7 @@ Gem::Specification.new do |s|
   s.name        = 'time_of_day'
   s.version     = TimeOfDay::VERSION
   s.platform    = Gem::Platform::RUBY
-  s.authors     = %q{'Lailson Bandeira'}
+  s.authors     = %q{Lailson Bandeira}
   s.email       = %q{lailson@guava.com.br}
   s.homepage    = 'http://rubygems.org/gems/time_of_day'
   s.summary     = 'Handle correctly times without dates in Rails 3.'
