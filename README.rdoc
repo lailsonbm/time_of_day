@@ -6,7 +6,7 @@ If you had, you know: it sucks. Well, not anymore.
 == Setup
 
 In the +Gemfile+ add:
-  
+
 	gem 'time_of_day'
 
 Run +bundler+:
