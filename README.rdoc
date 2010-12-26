@@ -29,7 +29,7 @@ So lets dive into Rails and do it. You'll end up with a migration and a model li
     def self.up
       create_table :trips do |t|
         t.string :train, :leaving_from, :arriving_at
-        t.time :departure, :arrive
+        t.time :departure, :arrival
       end
     end
 
@@ -47,12 +47,12 @@ on any of them at a given time:
 
   trip = Trip.new
   trip.departure = '10:00'
-  trip.arrive = '10:10'
+  trip.arrival = '10:10'
   
   # Will the train be on this trip at 10:05?
   time = Time.parse('10:05')
-  (trip.departure..trip.arrive).cover?(time) # OR
-  (trip.departure <= time && trip.arrive >= time) # if you are old fashioned =P
+  (trip.departure..trip.arrival).cover?(time) # OR
+  (trip.departure <= time && trip.arrival >= time) # if you are old fashioned =P
   
 You might be surprised to know: this code does not work. At least not as we expected: both 
 statements return false. The problem is caused by the way Active Record handles time-only attributes.
@@ -66,11 +66,11 @@ because <code>Time#parse</code> yields the current date (e.g. <code>2010-06-25 1
 
   # Always use the date 01/01/2000 for any time you want to compare (notice the Z for UTC time zone)
   time = Time.parse('2000-01-01 10:05Z')
-  (trip.departure..trip.arrive).cover?(time) # => true
+  (trip.departure..trip.arrival).cover?(time) # => true
   
   # OR compare always considering the seconds since midnight
   seconds = time.seconds_since_midnight
-  (trip.departure.seconds_since_midnight <= seconds && trip.arrive.seconds_since_midnight >= seconds) # => true
+  (trip.departure.seconds_since_midnight <= seconds && trip.arrival.seconds_since_midnight >= seconds) # => true
 
 Sorry, but both options suck.
 
@@ -95,16 +95,16 @@ though, is that Active Record time attributes are now always mapped to times of 
 
   trip = Trip.new
   trip.departure = '10:00'
-  trip.arrive = '10:10'
+  trip.arrival = '10:10'
   
   trip.departure.time_of_day? # => true
-  trip.arrive.time_of_day? # => true
+  trip.arrival.time_of_day? # => true
   
 At this time, the code works effortlessly:
 
   time = Time.parse('10:05').time_of_day!
-  (trip.departure..trip.arrive).cover?(time) # => true
-  (trip.departure <= time && trip.arrive >= time) # => true
+  (trip.departure..trip.arrival).cover?(time) # => true
+  (trip.departure <= time && trip.arrival >= time) # => true
   
 And you go home earlier.
 

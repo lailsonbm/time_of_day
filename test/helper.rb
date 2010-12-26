@@ -23,7 +23,7 @@ def load_schema
       create_table :users do |t|
         t.string :name
         t.date :birth_date
-        t.time :arrive_time
+        t.time :arrival_time
         t.datetime :join_datetime
         t.timestamp :last_operation_timestamp
       end
