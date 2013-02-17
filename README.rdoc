@@ -1,3 +1,7 @@
+= Deprecation Notice
+
+:warning: This gem is NOT being mantained anymore. Instead, try the tod[https://rubygems.org/gems/tod] gem. The current code works only until Rails 3.1.2.
+
 = time_of_day
 
 Have you already worked with a database Time column and an Active Record model together?
